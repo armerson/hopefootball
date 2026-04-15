@@ -18,11 +18,11 @@ export const metadata: Metadata = {
     template: "%s | Hope Football Foundation",
   },
   description:
-    "Bringing Hope through Football — a Northern Ireland charity with partner clubs in Northern Ireland, Senegal, and the Republic of the Congo.",
+    "Football. Hope. Community. — Hope Football Foundation backs partner clubs in Northern Ireland, Senegal, and the Republic of the Congo.",
   openGraph: {
     title: "Hope Football Foundation",
     description:
-      "Bringing Hope through Football — opportunity and community for young people in Northern Ireland, Senegal, and the Republic of the Congo.",
+      "Football. Hope. Community. High-trust nonprofit backing young people through partner clubs across three countries.",
     siteName: "Hope Football Foundation",
     locale: "en_GB",
     type: "website",

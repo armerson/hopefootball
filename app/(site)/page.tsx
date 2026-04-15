@@ -1,138 +1,108 @@
-import Image from "next/image";
-import Link from "next/link";
-import { DonateSection } from "@/components/donate-section";
-import { Hero } from "@/components/hero";
-import { SectionBlock } from "@/components/section-block";
-import { sanityFetch } from "@/lib/sanity.fetch";
-import {
-  getClubs,
-  getHomepage,
-} from "@/lib/sanity.queries";
-import { urlFor } from "@/lib/sanity.image";
-import type { ClubDocument, HomepageDocument } from "@/lib/sanity.types";
+import { CTASection } from "@/components/cta-section";
+import { HeroSection } from "@/components/hero-section";
+import { ImpactStats } from "@/components/impact-stats";
+import { PillarCard } from "@/components/pillar-card";
+import { ScrollReveal } from "@/components/scroll-reveal";
+import { SectionWrapper } from "@/components/section-wrapper";
+import { StoryBlock } from "@/components/story-block";
+import { TEAMS } from "@/lib/teams";
 
-export const revalidate = 60;
+const HERO_IMAGE =
+  "https://images.unsplash.com/photo-1574629810360-7efbbe195018?auto=format&fit=crop&w=2400&q=85";
 
-export default async function HomePage() {
-  const homepage = await sanityFetch<HomepageDocument | null>(getHomepage);
-  const clubs = await sanityFetch<ClubDocument[] | null>(getClubs);
-
-  const title =
-    homepage?.heroTitle?.trim() || "Football that changes lives";
-  const subtitle =
-    homepage?.heroSubtitle?.trim() ||
-    "Building character, community, and opportunity for young people across Northern Ireland and the world.";
-
+export default function HomePage() {
   return (
     <>
-      <Hero title={title} subtitle={subtitle} image={homepage?.heroImage ?? null} />
+      <HeroSection
+        title="Hope belongs on every pitch."
+        subtitle="We use football to open doors for young people—coaching, kit, and community that stay long after the final whistle."
+        imageSrc={HERO_IMAGE}
+        imageAlt="Football boot on grass in stadium light"
+        primaryCta={{ href: "/donate", label: "Give Hope" }}
+        secondaryCta={{ href: "/teams", label: "Meet the teams" }}
+      />
 
-      <section className="bg-gray-50 px-4 py-20 text-center sm:px-6 sm:py-16">
-        <h2 className="mb-4 text-2xl font-bold sm:text-3xl">Why it matters</h2>
-        <p className="mx-auto max-w-2xl text-base leading-relaxed text-gray-600 sm:text-lg">
-          Across the communities we serve, young people face challenges that go beyond football.
-          Through coaching and mentoring, we create safe spaces where they can grow, belong, and
-          build a better future.
-        </p>
-      </section>
+      <SectionWrapper sectionClassName="bg-white" aria-labelledby="mission-heading">
+        <ScrollReveal>
+          <h2
+            id="mission-heading"
+            className="text-center text-xs font-semibold uppercase tracking-[0.25em] text-neutral-500"
+          >
+            Mission
+          </h2>
+          <p className="mx-auto mt-6 max-w-3xl text-center text-xl font-medium leading-snug tracking-tight text-ink sm:text-2xl md:text-3xl">
+            Hope Football Foundation backs local clubs so every child can play with pride—no matter
+            their postcode or passport.
+          </p>
+        </ScrollReveal>
+      </SectionWrapper>
 
-      {homepage?.sections?.map((section) => (
-        <SectionBlock
-          key={section._key ?? section.title}
-          title={section.title ?? ""}
-          content={section.content}
-        />
-      ))}
-
-      <section className="bg-slate-50 py-20 sm:py-24">
-        <div className="mx-auto max-w-6xl px-4 sm:px-6">
-          <div className="flex flex-col gap-4 sm:flex-row sm:items-end sm:justify-between">
-            <div className="text-center sm:text-left">
-              <h2 className="text-2xl font-semibold tracking-tight text-slate-900 sm:text-3xl">
-                Our clubs
-              </h2>
-              <p className="mt-2 max-w-xl text-base text-slate-600 sm:text-lg">
-                Partner programmes backed by the foundation—ordered for display in Sanity.
-              </p>
-            </div>
-            <Link
-              href="/clubs"
-              className="inline-flex min-h-12 w-full items-center justify-center rounded-xl bg-blue-50 px-4 text-sm font-semibold text-blue-800 ring-1 ring-blue-200/80 transition hover:bg-blue-100 sm:w-auto sm:shrink-0 sm:px-5"
+      <SectionWrapper
+        sectionClassName="bg-neutral-50"
+        aria-labelledby="pillars-heading"
+        id="pillars"
+      >
+        <ScrollReveal>
+          <div className="mx-auto max-w-2xl text-center">
+            <h2
+              id="pillars-heading"
+              className="text-3xl font-semibold tracking-tight text-ink sm:text-4xl md:text-5xl"
             >
-              View all clubs →
-            </Link>
-          </div>
-          <div className="mt-10 grid grid-cols-1 gap-6 sm:mt-12 sm:gap-8 md:grid-cols-3">
-            {(clubs ?? []).slice(0, 6).map((club) => {
-              const imageUrl = club.image
-                ? urlFor(club.image)?.width(900).height(560).fit("crop").url()
-                : null;
-              const href = club.slug?.current
-                ? `/clubs/${club.slug.current}`
-                : "/clubs";
-              const alt =
-                (club.image &&
-                  "alt" in club.image &&
-                  typeof (club.image as { alt?: string }).alt === "string" &&
-                  (club.image as { alt?: string }).alt) ||
-                club.name ||
-                "";
-
-              return (
-                <Link
-                  key={club._id}
-                  href={href}
-                  className="group block overflow-hidden rounded-2xl bg-white shadow-md transition hover:shadow-xl"
-                >
-                  {imageUrl ? (
-                    <div className="relative h-56 w-full overflow-hidden">
-                      <Image
-                        src={imageUrl}
-                        alt={alt}
-                        fill
-                        className="object-cover transition duration-300 group-hover:scale-105"
-                        sizes="(max-width:768px) 100vw, 33vw"
-                      />
-                    </div>
-                  ) : (
-                    <div className="flex h-56 w-full items-center justify-center bg-gray-100 text-sm text-gray-400">
-                      No photo
-                    </div>
-                  )}
-
-                  <div className="p-5">
-                    <h3 className="text-xl font-bold text-gray-900">{club.name}</h3>
-                    <p className="text-sm text-gray-500">{club.country}</p>
-
-                    <p className="mt-3 line-clamp-3 text-sm text-gray-600">{club.description}</p>
-                  </div>
-                </Link>
-              );
-            })}
-          </div>
-          {!clubs?.length ? (
-            <p className="mt-8 rounded-xl border border-dashed border-slate-300 bg-white p-6 text-sm text-slate-600">
-              No clubs in Sanity yet. Add documents in the{" "}
-              <Link href="/studio" className="font-medium text-blue-700 underline">
-                CMS
-              </Link>{" "}
-              and set <code className="rounded bg-slate-100 px-1">NEXT_PUBLIC_SANITY_PROJECT_ID</code>{" "}
-              in <code className="rounded bg-slate-100 px-1">.env.local</code>.
+              Three clubs. One mission.
+            </h2>
+            <p className="mt-4 text-neutral-600 sm:text-lg">
+              Partner programmes in Northern Ireland, Senegal, and the Republic of the Congo.
             </p>
-          ) : null}
-        </div>
-      </section>
+          </div>
+          <div className="mt-14 grid gap-8 md:grid-cols-3">
+            {TEAMS.map((t) => (
+              <PillarCard
+                key={t.slug}
+                flag={t.flag}
+                title={t.name}
+                country={t.country}
+                description={t.shortDescription}
+                imageSrc={t.imageSrc}
+                imageAlt={t.imageAlt}
+                href={`/teams/${t.slug}`}
+              />
+            ))}
+          </div>
+        </ScrollReveal>
+      </SectionWrapper>
 
-      <section className="bg-primary px-4 py-20 text-center text-white sm:px-6 sm:py-24">
-        <h2 className="mb-6 text-3xl font-bold sm:text-4xl md:text-5xl">More than football</h2>
+      <SectionWrapper sectionClassName="bg-white" aria-labelledby="impact-heading">
+        <ScrollReveal>
+          <h2
+            id="impact-heading"
+            className="text-center text-3xl font-semibold tracking-tight text-ink sm:text-4xl md:text-5xl"
+          >
+            Impact that adds up
+          </h2>
+          <p className="mx-auto mt-4 max-w-xl text-center text-neutral-600 sm:text-lg">
+            Real sessions, real coaches, real young people—numbers are illustrative placeholders.
+          </p>
+          <div className="mt-14">
+            <ImpactStats />
+          </div>
+        </ScrollReveal>
+      </SectionWrapper>
 
-        <p className="mx-auto max-w-2xl text-base leading-relaxed text-gray-300 sm:text-lg">
-          We create safe spaces where young people can grow in confidence, build friendships, and
-          discover new opportunities.
-        </p>
-      </section>
+      <SectionWrapper sectionClassName="bg-neutral-50" aria-labelledby="story-heading">
+        <ScrollReveal>
+          <h2 id="story-heading" className="sr-only">
+            Story
+          </h2>
+          <StoryBlock />
+        </ScrollReveal>
+      </SectionWrapper>
 
-      <DonateSection />
+      <CTASection
+        headline="Every pound builds opportunity."
+        body="Transparent, coach-led, child-first. Join thousands who believe the pitch is a classroom for life."
+        ctaHref="/donate"
+        ctaLabel="Give Hope"
+      />
     </>
   );
 }

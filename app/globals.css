@@ -5,7 +5,17 @@
 
 :root {
   --background: #ffffff;
-  --foreground: #0f172a;
+  --foreground: #0a0a0a;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
 }
 
 @theme inline {
