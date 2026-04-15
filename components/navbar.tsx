@@ -2,7 +2,7 @@
 
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { useEffect, useState } from "react";
+import { useCallback, useLayoutEffect, useEffect, useState } from "react";
 
 const NAV = [
   { href: "/about", label: "About" },
@@ -13,26 +13,45 @@ const NAV = [
 /**
  * Sticky navbar — transparent over home hero; solid elsewhere. Mobile sheet menu.
  */
+function readHomeScrolled() {
+  if (typeof window === "undefined") return false;
+  return window.scrollY > 24;
+}
+
 export function Navbar() {
   const pathname = usePathname();
   const isHome = pathname === "/";
   const [scrolled, setScrolled] = useState(false);
   const [open, setOpen] = useState(false);
 
-  useEffect(() => {
+  const syncHomeScroll = useCallback(() => {
     if (!isHome) return;
-    const onScroll = () => setScrolled(window.scrollY > 24);
-    onScroll();
+    setScrolled(readHomeScrolled());
+  }, [isHome]);
+
+  /** Before paint: avoids one frame of “transparent bar + white text” over white content when scroll > 0 */
+  useLayoutEffect(() => {
+    if (!isHome) return;
+    queueMicrotask(() => syncHomeScroll());
+    const onScroll = () => syncHomeScroll();
     window.addEventListener("scroll", onScroll, { passive: true });
     return () => window.removeEventListener("scroll", onScroll);
-  }, [isHome]);
+  }, [isHome, syncHomeScroll]);
+
+  useEffect(() => {
+    const onPageShow = (e: PageTransitionEvent) => {
+      if (e.persisted) syncHomeScroll();
+    };
+    window.addEventListener("pageshow", onPageShow);
+    return () => window.removeEventListener("pageshow", onPageShow);
+  }, [syncHomeScroll]);
 
   const solid = !isHome || scrolled;
   const closeMenu = () => setOpen(false);
 
   const linkDesktop = solid
     ? "text-sm font-medium text-neutral-800 transition hover:text-accent"
-    : "text-sm font-medium text-white/90 transition hover:text-white";
+    : "text-sm font-medium text-white/95 transition hover:text-white [text-shadow:0_1px_2px_rgb(0_0_0/0.65)]";
 
   const linkMobile =
     "flex min-h-12 items-center rounded-xl px-3 text-base font-semibold text-ink hover:bg-neutral-100";
@@ -50,12 +69,14 @@ export function Navbar() {
         <div className="mx-auto flex max-w-6xl items-center justify-between gap-4 px-4 py-3 sm:px-6 md:py-4">
           <Link
             href="/"
-            className={`text-lg font-semibold tracking-tight ${solid ? "text-ink" : "text-white"}`}
+            className={`shrink-0 text-lg font-semibold tracking-tight ${
+              solid ? "text-ink" : "text-white [text-shadow:0_1px_3px_rgb(0_0_0/0.75)]"
+            }`}
           >
             Hope Football
           </Link>
 
-          <div className="hidden items-center gap-8 md:flex">
+          <div className="hidden shrink-0 items-center gap-8 md:flex">
             {NAV.map((item) => (
               <Link key={item.href} href={item.href} className={linkDesktop}>
                 {item.label}
@@ -69,7 +90,7 @@ export function Navbar() {
             </Link>
           </div>
 
-          <div className="flex items-center gap-2 md:hidden">
+          <div className="flex shrink-0 items-center gap-2 md:hidden">
             <Link
               href="/donate"
               className="inline-flex min-h-11 items-center rounded-2xl bg-accent px-4 py-2.5 text-sm font-semibold text-white"

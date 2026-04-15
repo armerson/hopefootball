@@ -41,7 +41,7 @@ export function HeroSection({
         <p className="mb-4 text-xs font-semibold uppercase tracking-[0.25em] text-white/80 md:text-sm">
           {tagline}
         </p>
-        <h1 className="max-w-4xl text-4xl font-semibold leading-[1.05] tracking-tight sm:text-5xl md:text-6xl lg:text-7xl">
+        <h1 className="block max-w-4xl break-words text-4xl font-semibold leading-tight tracking-tight sm:text-5xl md:text-6xl lg:text-7xl">
           {title}
         </h1>
         {subtitle ? (
