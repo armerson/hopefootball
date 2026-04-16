@@ -7,6 +7,7 @@ import { useCallback, useLayoutEffect, useEffect, useState } from "react";
 const NAV = [
   { href: "/about", label: "About" },
   { href: "/teams", label: "Teams" },
+  { href: "/cycle-for-hope", label: "Cycle for Hope" },
   { href: "/#contact", label: "Contact" },
 ] as const;
 

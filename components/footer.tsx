@@ -24,6 +24,9 @@ export function Footer() {
               <Link href="/donate" className="text-sm font-medium text-white/85 hover:text-accent">
                 Donate
               </Link>
+              <Link href="/cycle-for-hope" className="text-sm font-medium text-white/85 hover:text-accent">
+                Cycle for Hope
+              </Link>
             </nav>
           </div>
           <div>
