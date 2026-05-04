@@ -6,6 +6,8 @@ type CTASectionProps = {
   body?: string;
   ctaHref?: string;
   ctaLabel?: string;
+  /** Optional second action (e.g. mailto sponsor) */
+  secondaryCta?: { href: string; label: string };
 };
 
 export function CTASection({
@@ -14,7 +16,11 @@ export function CTASection({
   body,
   ctaHref = "/donate",
   ctaLabel = "Give Hope",
+  secondaryCta,
 }: CTASectionProps) {
+  const secondaryOutline =
+    "inline-flex min-h-14 items-center justify-center rounded-2xl border border-white/50 bg-transparent px-10 py-4 text-base font-semibold text-white transition hover:bg-white/10 active:scale-[0.99]";
+
   return (
     <section
       id={id}
@@ -29,12 +35,25 @@ export function CTASection({
           {headline}
         </h2>
         {body ? <p className="mx-auto mt-5 max-w-2xl text-base text-white/75 sm:text-lg">{body}</p> : null}
-        <Link
-          href={ctaHref}
-          className="mt-10 inline-flex min-h-14 items-center justify-center rounded-2xl bg-accent px-10 py-4 text-base font-semibold text-white shadow-lg shadow-accent/25 transition hover:bg-sky-400 active:scale-[0.99]"
-        >
-          {ctaLabel}
-        </Link>
+        <div className="mt-10 flex flex-col items-center justify-center gap-4 sm:flex-row sm:flex-wrap">
+          <Link
+            href={ctaHref}
+            className="inline-flex min-h-14 w-full items-center justify-center rounded-2xl bg-accent px-10 py-4 text-base font-semibold text-white shadow-lg shadow-accent/25 transition hover:bg-accent-muted active:scale-[0.99] sm:w-auto"
+          >
+            {ctaLabel}
+          </Link>
+          {secondaryCta ? (
+            secondaryCta.href.startsWith("mailto:") || secondaryCta.href.startsWith("tel:") ? (
+              <a href={secondaryCta.href} className={`${secondaryOutline} w-full sm:w-auto`}>
+                {secondaryCta.label}
+              </a>
+            ) : (
+              <Link href={secondaryCta.href} className={`${secondaryOutline} w-full sm:w-auto`}>
+                {secondaryCta.label}
+              </Link>
+            )
+          ) : null}
+        </div>
       </div>
     </section>
   );

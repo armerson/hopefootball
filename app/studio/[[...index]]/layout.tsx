@@ -1,14 +1,9 @@
-import type { Metadata, Viewport } from "next";
+import type { Metadata } from "next";
 import { metadata as studioMetadata } from "next-sanity/studio";
 
 export const metadata: Metadata = {
   ...studioMetadata,
   title: "Hope Football — CMS",
-};
-
-export const viewport: Viewport = {
-  width: "device-width",
-  initialScale: 1,
 };
 
 export default function StudioLayout({

@@ -18,6 +18,7 @@ export type HomepageSection = {
 export type HomepageDocument = {
   _id: string;
   heroTitle?: string | null;
+  heroTitleAccent?: string | null;
   heroSubtitle?: string | null;
   heroImage?: SanityImage | null;
   sections?: HomepageSection[] | null;

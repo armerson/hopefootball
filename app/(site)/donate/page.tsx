@@ -1,6 +1,6 @@
 import Image from "next/image";
 import { DonationBox } from "@/components/donation-box";
-import { ScrollReveal } from "@/components/scroll-reveal";
+import ScrollReveal from "@/components/scroll-reveal";
 
 export const metadata = {
   title: "Donate",
@@ -28,19 +28,21 @@ export default function DonatePage() {
           <ScrollReveal>
             <div className="sticky top-28 space-y-6">
               <div className="relative aspect-[4/5] overflow-hidden rounded-2xl shadow-soft ring-1 ring-black/5">
-                <Image
-                  src="https://images.unsplash.com/photo-1529156069898-49953e39b3ac?auto=format&fit=crop&w=1200&q=80"
-                  alt="Teammates laughing together after training"
-                  fill
-                  className="object-cover"
-                  sizes="(max-width: 1024px) 100vw, 50vw"
-                />
+                <div className="absolute inset-0">
+                  <Image
+                    src="https://images.unsplash.com/photo-1529156069898-49953e39b3ac?auto=format&fit=crop&w=1200&q=80"
+                    alt="Teammates laughing together after training"
+                    fill
+                    className="object-cover"
+                    sizes="(max-width: 1024px) 100vw, 50vw"
+                  />
+                </div>
               </div>
               <div className="rounded-2xl border border-neutral-200 bg-white p-6 shadow-card sm:p-8">
                 <p className="text-xs font-semibold uppercase tracking-wider text-neutral-500">Why it matters</p>
                 <p className="mt-3 text-base font-medium leading-relaxed text-ink sm:text-lg">
                   Coaches text us when a shy player shows up early. That is the work your donation
-                  protects—week in, week out, in three countries.
+                  protects—week in, week out, starting with Yakaar FC in Senegal.
                 </p>
                 <p className="mt-4 text-sm text-neutral-600">James M., programme lead (placeholder)</p>
               </div>

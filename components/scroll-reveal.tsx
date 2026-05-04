@@ -10,7 +10,7 @@ type ScrollRevealProps = {
 /**
  * Subtle fade-up on scroll. `motion-reduce:` shows content immediately without animation.
  */
-export function ScrollReveal({ children, className = "" }: ScrollRevealProps) {
+export default function ScrollReveal({ children, className = "" }: ScrollRevealProps) {
   const ref = useRef<HTMLDivElement>(null);
   const [visible, setVisible] = useState(false);
 

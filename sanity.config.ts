@@ -13,7 +13,7 @@ export default defineConfig({
   name: "hope-football",
   title: "Hope Football CMS",
   basePath: "/studio",
-  projectId: projectId || "placeholder",
+  projectId: projectId || "",
   dataset: dataset || "production",
   schema,
   plugins: [

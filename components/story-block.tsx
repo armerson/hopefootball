@@ -13,13 +13,15 @@ export function StoryBlock({ id = "story" }: StoryBlockProps) {
       className="grid gap-10 overflow-hidden rounded-2xl bg-neutral-50 ring-1 ring-black/5 lg:grid-cols-2 lg:gap-0"
     >
       <div className="relative min-h-[280px] lg:min-h-full">
-        <Image
-          src="https://images.unsplash.com/photo-1517466787929-bc90951d0974?auto=format&fit=crop&w=1200&q=80"
-          alt="Young players training together on a pitch"
-          fill
-          className="object-cover"
-          sizes="(max-width: 1024px) 100vw, 50vw"
-        />
+        <div className="absolute inset-0 lg:min-h-full">
+          <Image
+            src="https://images.unsplash.com/photo-1517466787929-bc90951d0974?auto=format&fit=crop&w=1200&q=80"
+            alt="Young players training together on a pitch"
+            fill
+            className="object-cover"
+            sizes="(max-width: 1024px) 100vw, 50vw"
+          />
+        </div>
       </div>
       <div className="flex flex-col justify-center p-8 sm:p-12 lg:p-14">
         <p className="text-xs font-semibold uppercase tracking-[0.2em] text-neutral-500">One story</p>

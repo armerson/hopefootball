@@ -18,6 +18,13 @@ export const homepage = defineType({
       rows: 4,
     }),
     defineField({
+      name: "heroTitleAccent",
+      title: "Hero title accent (optional)",
+      type: "string",
+      description:
+        "Shown after the main title in the accent colour (e.g. “changes lives”). Leave empty for a single-line title.",
+    }),
+    defineField({
       name: "heroImage",
       title: "Hero image",
       type: "image",
@@ -32,7 +39,9 @@ export const homepage = defineType({
     }),
     defineField({
       name: "sections",
-      title: "Content sections",
+      title: "Sections below the hero",
+      description:
+        "Optional blocks of title + text, shown directly under the hero on the home page. Use Add item for each block. Main homepage sections are still edited in code unless we move them into Sanity.",
       type: "array",
       of: [
         {

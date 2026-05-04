@@ -1,13 +1,12 @@
 "use client";
 
+import Image from "next/image";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useCallback, useLayoutEffect, useEffect, useState } from "react";
 
 const NAV = [
   { href: "/about", label: "About" },
-  { href: "/teams", label: "Teams" },
-  { href: "/cycle-for-hope", label: "Cycle for Hope" },
   { href: "/#contact", label: "Contact" },
 ] as const;
 
@@ -34,7 +33,7 @@ function initialElevated(scrollY: number): boolean {
  */
 export function Navbar() {
   const pathname = usePathname();
-  const isHome = pathname === "/";
+  const isHome = pathname === "/" || pathname === "/about";
   const [elevated, setElevated] = useState(false);
   const [open, setOpen] = useState(false);
 
@@ -82,11 +81,17 @@ export function Navbar() {
         <div className="mx-auto flex max-w-6xl items-center justify-between gap-4 px-4 py-3 sm:px-6 md:py-4">
           <Link
             href="/"
-            className={`shrink-0 text-lg font-semibold tracking-tight ${
-              solidBar ? "text-ink" : "text-white"
-            }`}
+            className="flex shrink-0 items-center"
           >
-            Hope Football
+            <Image
+              src="/hope-football.png"
+              alt="Hope Football"
+              width={1415}
+              height={1112}
+              priority
+              className="h-12 w-auto rounded-sm md:h-14"
+              sizes="(min-width: 768px) 178px, 153px"
+            />
           </Link>
 
           <div className="hidden shrink-0 items-center gap-8 md:flex">
@@ -97,7 +102,7 @@ export function Navbar() {
             ))}
             <Link
               href="/donate"
-              className="inline-flex min-h-11 items-center rounded-2xl bg-accent px-5 py-2.5 text-sm font-semibold text-white shadow-lg shadow-accent/20 transition hover:bg-sky-500"
+              className="inline-flex min-h-11 items-center rounded-2xl bg-accent px-5 py-2.5 text-sm font-semibold text-white shadow-lg shadow-accent/20 transition hover:bg-accent-muted"
             >
               Donate
             </Link>

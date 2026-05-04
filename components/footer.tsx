@@ -1,3 +1,4 @@
+import Image from "next/image";
 import Link from "next/link";
 
 export function Footer() {
@@ -6,10 +7,17 @@ export function Footer() {
       <div className="mx-auto max-w-6xl px-4 py-16 sm:px-6 sm:py-20">
         <div className="grid gap-12 md:grid-cols-2 lg:grid-cols-4 lg:gap-8">
           <div className="lg:col-span-2">
-            <p className="text-lg font-semibold tracking-tight">Hope Football Foundation</p>
+            <Image
+              src="/hope-football.png"
+              alt="Hope Football"
+              width={1415}
+              height={1112}
+              className="h-auto w-44 rounded-sm"
+              sizes="176px"
+            />
             <p className="mt-3 max-w-md text-sm leading-relaxed text-white/70">
-              Football. Hope. Community. We back partner clubs so young people can play, grow, and lead
-              with dignity—Northern Ireland, Senegal, and the Republic of the Congo.
+              Football. Hope. Community. We back locally led football projects so young people can
+              play, grow, and lead with dignity.
             </p>
           </div>
           <div>
@@ -18,14 +26,8 @@ export function Footer() {
               <Link href="/about" className="text-sm font-medium text-white/85 hover:text-accent">
                 About
               </Link>
-              <Link href="/teams" className="text-sm font-medium text-white/85 hover:text-accent">
-                Teams
-              </Link>
               <Link href="/donate" className="text-sm font-medium text-white/85 hover:text-accent">
                 Donate
-              </Link>
-              <Link href="/cycle-for-hope" className="text-sm font-medium text-white/85 hover:text-accent">
-                Cycle for Hope
               </Link>
             </nav>
           </div>

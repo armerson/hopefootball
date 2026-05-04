@@ -1,10 +1,14 @@
 /**
-* This configuration file lets you run `$ sanity [command]` in this folder
-* Go to https://www.sanity.io/docs/cli to learn more.
-**/
-import { defineCliConfig } from 'sanity/cli'
+ * Sanity CLI — run from the `web/` folder.
+ * Load `.env.local` here (Node only). Do not put this in `sanity/env.ts` — that file is bundled for the browser.
+ */
+import path from "node:path";
+import { config as loadEnv } from "dotenv";
+import { defineCliConfig } from "sanity/cli";
 
-const projectId = process.env.NEXT_PUBLIC_SANITY_PROJECT_ID
-const dataset = process.env.NEXT_PUBLIC_SANITY_DATASET
+loadEnv({ path: path.join(process.cwd(), ".env.local") });
 
-export default defineCliConfig({ api: { projectId, dataset } })
+const projectId = process.env.NEXT_PUBLIC_SANITY_PROJECT_ID;
+const dataset = process.env.NEXT_PUBLIC_SANITY_DATASET;
+
+export default defineCliConfig({ api: { projectId, dataset } });

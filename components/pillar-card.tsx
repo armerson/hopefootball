@@ -26,13 +26,15 @@ export function PillarCard({
       className="group flex flex-col overflow-hidden rounded-2xl bg-white shadow-card ring-1 ring-black/5 transition duration-300 hover:-translate-y-1 hover:shadow-soft"
     >
       <div className="relative aspect-[4/3] w-full overflow-hidden">
-        <Image
-          src={imageSrc}
-          alt={imageAlt}
-          fill
-          className="object-cover transition duration-500 group-hover:scale-[1.03]"
-          sizes="(max-width: 768px) 100vw, 33vw"
-        />
+        <div className="absolute inset-0">
+          <Image
+            src={imageSrc}
+            alt={imageAlt}
+            fill
+            className="object-cover transition duration-500 group-hover:scale-[1.03]"
+            sizes="(max-width: 768px) 100vw, 33vw"
+          />
+        </div>
         <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent opacity-80 transition group-hover:opacity-90" />
         <span className="absolute left-4 top-4 text-2xl drop-shadow-md" aria-hidden>
           {flag}

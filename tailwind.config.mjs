@@ -3,11 +3,11 @@ const config = {
   theme: {
     extend: {
       colors: {
-        /** Deep ink for hero / footer */
-        ink: "#0a0a0a",
-        /** Sky accent — trust + energy */
-        accent: "#0ea5e9",
-        "accent-muted": "#38bdf8",
+        /** Near-black from the Hope Football mark */
+        ink: "#020204",
+        /** Royal blue from the Hope Football mark */
+        accent: "#1457e8",
+        "accent-muted": "#2f6fff",
       },
       boxShadow: {
         soft: "0 22px 50px -12px rgb(0 0 0 / 0.12)",

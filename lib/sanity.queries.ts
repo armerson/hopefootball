@@ -5,6 +5,7 @@ export const getHomepage = defineQuery(`
   *[_type == "homepage"][0]{
     _id,
     heroTitle,
+    heroTitleAccent,
     heroSubtitle,
     heroImage,
     sections[]{ _key, title, content }

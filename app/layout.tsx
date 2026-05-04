@@ -1,4 +1,4 @@
-import type { Metadata } from "next";
+import type { Metadata, Viewport } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 
@@ -12,17 +12,22 @@ const geistMono = Geist_Mono({
   subsets: ["latin"],
 });
 
+export const viewport: Viewport = {
+  width: "device-width",
+  initialScale: 1,
+};
+
 export const metadata: Metadata = {
   title: {
     default: "Hope Football Foundation",
     template: "%s | Hope Football Foundation",
   },
   description:
-    "Football. Hope. Community. — Hope Football Foundation backs partner clubs in Northern Ireland, Senegal, and the Republic of the Congo.",
+    "Football. Hope. Community. — Hope Football Foundation backs locally led football projects for young people.",
   openGraph: {
     title: "Hope Football Foundation",
     description:
-      "Football. Hope. Community. High-trust nonprofit backing young people through partner clubs across three countries.",
+      "Football. Hope. Community. High-trust nonprofit backing young people through locally led football projects.",
     siteName: "Hope Football Foundation",
     locale: "en_GB",
     type: "website",

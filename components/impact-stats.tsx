@@ -15,8 +15,8 @@ const STATS = [
     ),
   },
   {
-    value: "3",
-    label: "Partner clubs worldwide",
+    value: "1st",
+    label: "Partner club in Senegal",
     icon: (
       <svg className="h-8 w-8" viewBox="0 0 32 32" fill="none" aria-hidden>
         <circle cx="10" cy="22" r="3" stroke="currentColor" strokeWidth="1.5" />
