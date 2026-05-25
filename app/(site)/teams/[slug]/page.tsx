@@ -1,7 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
 import { notFound } from "next/navigation";
-import { fetchClubForTeam, resolveTeamImage } from "@/lib/team-media";
 import { TEAMS, getTeamBySlug } from "@/lib/teams";
 
 type Props = { params: Promise<{ slug: string }> };
@@ -14,9 +13,8 @@ export async function generateMetadata({ params }: Props) {
   const { slug } = await params;
   const team = getTeamBySlug(slug);
   if (!team) return { title: "Team" };
-  const club = await fetchClubForTeam(team);
-  const title = club?.name?.trim() || team.name;
-  const raw = club?.description?.trim() || team.shortDescription;
+  const title = team.name;
+  const raw = team.shortDescription;
   const description = raw.length > 180 ? `${raw.slice(0, 177)}…` : raw;
   return { title, description };
 }
@@ -26,19 +24,13 @@ export default async function TeamDetailPage({ params }: Props) {
   const team = getTeamBySlug(slug);
   if (!team) notFound();
 
-  const club = await fetchClubForTeam(team);
-  const { imageSrc, imageAlt } = resolveTeamImage(team, club ?? undefined, "hero");
-  const displayName = club?.name?.trim() || team.name;
-  const displayCountry = club?.country?.trim() || team.country;
-  const leadCopy = club?.description?.trim() || team.shortDescription;
-
   return (
     <main className="bg-white">
       <div className="relative h-[min(70vh,36rem)] min-h-[20rem] w-full">
         <div className="absolute inset-0">
           <Image
-            src={imageSrc}
-            alt={imageAlt}
+            src={team.imageSrc}
+            alt={team.imageAlt}
             fill
             priority
             className="object-cover"
@@ -54,16 +46,16 @@ export default async function TeamDetailPage({ params }: Props) {
             ← About Hope Football
           </Link>
           <p className="mt-4 text-sm font-semibold uppercase tracking-wider text-white/80">
-            {team.flag} {displayCountry}
+            {team.flag} {team.country}
           </p>
           <h1 className="mt-2 text-4xl font-semibold tracking-tight text-white sm:text-5xl md:text-6xl">
-            {displayName}
+            {team.name}
           </h1>
         </div>
       </div>
 
       <div className="mx-auto max-w-3xl px-4 py-16 sm:px-6 sm:py-20">
-        <p className="text-lg leading-relaxed text-neutral-700 whitespace-pre-wrap">{leadCopy}</p>
+        <p className="text-lg leading-relaxed text-neutral-700 whitespace-pre-wrap">{team.shortDescription}</p>
         <p className="mt-8 text-neutral-600">
           Full club story, gallery, and programme timeline will come later. In the meantime, your
           support keeps sessions on the calendar.

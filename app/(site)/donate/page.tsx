@@ -30,15 +30,15 @@ export default function DonatePage() {
               <div className="relative aspect-[4/5] overflow-hidden rounded-2xl shadow-soft ring-1 ring-black/5">
                 <div className="absolute inset-0">
                   <Image
-                    src="https://images.unsplash.com/photo-1529156069898-49953e39b3ac?auto=format&fit=crop&w=1200&q=80"
-                    alt="Teammates laughing together after training"
+                    src="/images/yakaar-trophy.jpeg"
+                    alt="Yakaar FC player receiving recognition after football"
                     fill
                     className="object-cover"
                     sizes="(max-width: 1024px) 100vw, 50vw"
                   />
                 </div>
               </div>
-              <div className="rounded-2xl border border-neutral-200 bg-white p-6 shadow-card sm:p-8">
+              <div className="rounded-md border border-neutral-200 bg-white p-6 shadow-card sm:p-8">
                 <p className="text-xs font-semibold uppercase tracking-wider text-neutral-500">Why it matters</p>
                 <p className="mt-3 text-base font-medium leading-relaxed text-ink sm:text-lg">
                   Coaches text us when a shy player shows up early. That is the work your donation

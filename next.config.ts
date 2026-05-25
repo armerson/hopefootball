@@ -18,20 +18,6 @@ const nextConfig: NextConfig = {
       "@tailwindcss/postcss": path.join(appDir, "node_modules", "@tailwindcss", "postcss"),
     },
   },
-  images: {
-    remotePatterns: [
-      {
-        protocol: "https",
-        hostname: "cdn.sanity.io",
-        pathname: "/**",
-      },
-      {
-        protocol: "https",
-        hostname: "images.unsplash.com",
-        pathname: "/**",
-      },
-    ],
-  },
 };
 
 export default nextConfig;

@@ -18,7 +18,7 @@ const VALUES = [
     text: "What we learn through Yakaar FC in Senegal will shape the next partnerships with care.",
   },
   {
-    title: "Radical clarity",
+    title: "Transparent giving",
     text: "Donors see where money goes; families see why it matters.",
   },
 ];
@@ -26,7 +26,7 @@ const VALUES = [
 export const metadata = {
   title: "About",
   description:
-    "Vision, story, and values of Hope Football Foundation—supporting locally led football projects for young people.",
+    "Hope Football is a Northern Ireland charity born in 2026 from 20 years of Ambassadors Football (Ireland) work in West Africa.",
 };
 
 export default function AboutPage() {
@@ -36,131 +36,223 @@ export default function AboutPage() {
         title="Hope through"
         titleAccent="football."
         tagline="About us"
-        subtitle="We support locally led football projects that give young people a place to play, belong, and grow."
-        imageSrc="https://images.unsplash.com/photo-1517466787929-bc90951d0974?auto=format&fit=crop&w=2400&q=85"
-        imageAlt="Young footballers training together on a pitch"
+        subtitle="A Northern Ireland charity supporting locally led football projects across West Africa."
+        imageSrc="/images/yakaar-hero.jpeg"
+        imageAlt="Yakaar FC players and coaches together in Senegal"
         primaryCta={{ href: "/donate", label: "Give Hope" }}
         secondaryCta={{ href: "/#contact", label: "Contact us" }}
       />
       <main className="bg-white">
-      <SectionWrapper aria-labelledby="vision-heading">
-        <ScrollReveal>
-          <div className="grid gap-10 lg:grid-cols-[0.85fr_1fr] lg:items-center">
-            <div className="relative min-h-[18rem] overflow-hidden rounded-2xl shadow-card ring-1 ring-black/5">
-              <Image
-                src="https://images.unsplash.com/photo-1579952363873-27f3bade9f55?auto=format&fit=crop&w=1400&q=85"
-                alt="Football boot beside a ball on grass"
-                fill
-                className="object-cover"
-                sizes="(max-width: 1024px) 100vw, 42vw"
-              />
+        <SectionWrapper aria-labelledby="vision-heading">
+          <ScrollReveal>
+            <div className="grid gap-10 lg:grid-cols-[0.85fr_1fr] lg:items-center">
+              <div className="relative min-h-[18rem] overflow-hidden rounded-md shadow-card ring-1 ring-black/5">
+                <Image
+                  src="/images/yakaar-celebration.jpeg"
+                  alt="Young players celebrating during a football session"
+                  fill
+                  className="object-cover"
+                  sizes="(max-width: 1024px) 100vw, 42vw"
+                />
+              </div>
+              <div>
+                <h2 id="vision-heading" className="text-3xl font-semibold tracking-tight text-ink sm:text-4xl">
+                  Vision
+                </h2>
+                <p className="mt-6 max-w-3xl text-lg leading-relaxed text-neutral-700 sm:text-xl">
+                  A world where every young person who wants to play has a club that believes in them,
+                  where hope is practical, weekly, and worn on a jersey.
+                </p>
+              </div>
             </div>
-            <div>
-              <h2 id="vision-heading" className="text-3xl font-semibold tracking-tight text-ink sm:text-4xl">
-                Vision
+          </ScrollReveal>
+        </SectionWrapper>
+
+        <SectionWrapper sectionClassName="bg-neutral-50" aria-labelledby="story-heading">
+          <ScrollReveal>
+            <h2 id="story-heading" className="text-3xl font-semibold tracking-tight text-ink sm:text-4xl">
+              How it started
+            </h2>
+            <div className="mt-8 grid gap-10 lg:grid-cols-[1fr_0.85fr] lg:items-center">
+              <div className="max-w-3xl space-y-6 text-base leading-relaxed text-neutral-700 sm:text-lg">
+                <p>
+                  Hope Football is a Northern Ireland charity born in 2026 out of the work of
+                  Ambassadors Football (Ireland). After 20 years of relationships, coaching, and
+                  football projects in West Africa, it became clear that the growing work needed a
+                  dedicated charity with its own focus.
+                </p>
+                <p>
+                  Today Hope Football exists to support locally led football projects with care,
+                  structure, and long-term backing, beginning with Yakaar FC in Senegal.
+                </p>
+              </div>
+              <div className="relative min-h-[18rem] overflow-hidden rounded-md shadow-card ring-1 ring-black/5">
+                <Image
+                  src="/images/yakaar-trophy.jpeg"
+                  alt="Yakaar FC player receiving recognition after football"
+                  fill
+                  className="object-cover"
+                  sizes="(max-width: 1024px) 100vw, 40vw"
+                />
+              </div>
+            </div>
+          </ScrollReveal>
+        </SectionWrapper>
+
+        <SectionWrapper sectionClassName="bg-ink text-white" aria-labelledby="structure-heading">
+          <ScrollReveal>
+            <div className="mx-auto max-w-3xl text-center">
+              <p className="text-xs font-semibold uppercase tracking-[0.2em] text-accent-muted">
+                Hope Football
+              </p>
+              <h2 id="structure-heading" className="mt-4 text-3xl font-semibold tracking-tight sm:text-4xl">
+                One foundation. Local clubs. Shared standards.
               </h2>
-              <p className="mt-6 max-w-3xl text-lg leading-relaxed text-neutral-700 sm:text-xl">
-                A world where every young person who wants to play has a club that believes in them,
-                where hope is practical, weekly, and worn on a jersey.
+              <p className="mt-5 text-base leading-relaxed text-white/70 sm:text-lg">
+                Hope Football gives the structure, governance, and practical support. Partner clubs
+                stay locally led, with Yakaar FC in Senegal first.
               </p>
             </div>
-          </div>
-        </ScrollReveal>
-      </SectionWrapper>
+            <div
+              className="relative mt-12 overflow-hidden rounded-md border border-white/10 bg-black p-6 shadow-soft sm:p-10"
+              role="img"
+              aria-label="Diagram: Hope Football Foundation supports Yakaar FC first, with future partners to follow"
+            >
+              <span className="absolute -left-8 top-8 h-48 w-2 rotate-[35deg] bg-accent" aria-hidden />
+              <span className="absolute -right-10 bottom-10 h-56 w-2 rotate-[35deg] bg-accent" aria-hidden />
+              <div className="relative mx-auto flex max-w-4xl flex-col items-center">
+                <Image
+                  src="/hope-football.png"
+                  alt=""
+                  width={240}
+                  height={180}
+                  className="h-auto w-40 sm:w-52"
+                />
 
-      <SectionWrapper sectionClassName="bg-neutral-50" aria-labelledby="story-heading">
-        <ScrollReveal>
-          <h2 id="story-heading" className="text-3xl font-semibold tracking-tight text-ink sm:text-4xl">
-            How it started
-          </h2>
-          <div className="mt-8 grid gap-10 lg:grid-cols-[1fr_0.85fr] lg:items-center">
-            <div className="max-w-3xl space-y-6 text-base leading-relaxed text-neutral-700 sm:text-lg">
-              <p>
-                Hope Football began through relationships built around football, coaching, and young
-                people who needed consistent support. The question became simple: how do we keep
-                showing up after the trip ends?
-              </p>
-              <p>
-                Today the foundation is building a home for locally led football projects, beginning
-                with Yakaar FC in Senegal. The promise is simple: football used with care, structure,
-                and long-term support.
-              </p>
-            </div>
-            <div className="relative min-h-[18rem] overflow-hidden rounded-2xl shadow-card ring-1 ring-black/5">
-              <Image
-                src="https://images.unsplash.com/photo-1551958219-acbc608c6377?auto=format&fit=crop&w=1400&q=85"
-                alt="Football team gathered before a match"
-                fill
-                className="object-cover"
-                sizes="(max-width: 1024px) 100vw, 40vw"
-              />
-            </div>
-          </div>
-        </ScrollReveal>
-      </SectionWrapper>
-
-      <SectionWrapper aria-labelledby="structure-heading">
-        <ScrollReveal>
-          <h2 id="structure-heading" className="text-3xl font-semibold tracking-tight text-ink sm:text-4xl">
-            How we are organised
-          </h2>
-          <p className="mt-4 max-w-2xl text-neutral-600 sm:text-lg">
-            Hope Football Foundation supports partner clubs as they come on at the right time. Yakaar
-            FC in Senegal is the first partner club.
-          </p>
-          <div
-            className="mt-12 rounded-2xl border border-neutral-200 bg-neutral-50 p-8 shadow-card sm:p-12"
-            role="img"
-            aria-label="Diagram: Hope Football Foundation supports Yakaar FC first, with future partners to follow"
-          >
-            <div className="mx-auto flex max-w-lg flex-col items-center gap-6">
-              <div className="w-full rounded-2xl bg-ink px-6 py-4 text-center text-sm font-semibold text-white sm:text-base">
-                Hope Football Foundation
-              </div>
-              <div className="flex h-10 w-px bg-neutral-300" aria-hidden />
-              <div className="grid w-full gap-4 sm:grid-cols-2">
-                <div className="rounded-2xl border border-accent/30 bg-white px-3 py-4 text-center text-xs font-semibold text-ink shadow-sm sm:text-sm">
-                  Yakaar FC, Senegal
+                <div className="mt-8 grid w-full max-w-xl gap-4">
+                  {[
+                    {
+                      title: "Hope Football Board",
+                      text: "Strategic leadership, governance, and oversight for the foundation.",
+                    },
+                    {
+                      title: "Hope Football Staff",
+                      text: "Programme delivery, club support, safeguarding, and day-to-day operations.",
+                    },
+                  ].map((item) => (
+                    <div
+                      key={item.title}
+                      className="rounded-md border border-accent/70 bg-white/[0.03] px-5 py-4 text-left shadow-[0_0_24px_rgba(37,99,235,0.14)]"
+                    >
+                      <p className="text-sm font-semibold uppercase tracking-[0.16em] text-accent-muted">
+                        {item.title}
+                      </p>
+                      <p className="mt-1 text-sm leading-relaxed text-white/75">{item.text}</p>
+                    </div>
+                  ))}
                 </div>
-                <div className="rounded-2xl border border-dashed border-neutral-300 bg-white/70 px-3 py-4 text-center text-xs font-semibold text-neutral-500 shadow-sm sm:text-sm">
-                  Future partners
+
+                <div className="h-10 w-px bg-white/40" aria-hidden />
+                <div className="rounded-md bg-accent px-6 py-3 text-center text-xs font-semibold uppercase tracking-[0.18em] text-white shadow-lg shadow-accent/25">
+                  Clubs are run by local committees
+                </div>
+
+                <div className="grid w-full gap-6 pt-10 sm:grid-cols-2">
+                  <div className="rounded-md border border-accent/60 bg-white/[0.04] p-6 text-center">
+                    <Image
+                      src="/images/yakaar-logo.jpg"
+                      alt="Yakaar Football Senegal logo"
+                      width={132}
+                      height={132}
+                      className="mx-auto h-24 w-24 rounded-full object-cover ring-2 ring-white/20 sm:h-28 sm:w-28"
+                    />
+                    <h3 className="mt-5 text-lg font-semibold uppercase tracking-[0.14em] text-accent-muted">
+                      Yakaar FC
+                    </h3>
+                    <p className="mt-2 text-sm leading-relaxed text-white/70">
+                      Community driven football in Senegal, supported first and built carefully.
+                    </p>
+                  </div>
+                  <div className="rounded-md border border-dashed border-white/25 bg-white/[0.02] p-6 text-center">
+                    <div className="mx-auto flex h-24 w-24 items-center justify-center rounded-full border border-white/20 bg-white/[0.04] text-3xl font-semibold text-white/30 sm:h-28 sm:w-28">
+                      +
+                    </div>
+                    <h3 className="mt-5 text-lg font-semibold uppercase tracking-[0.14em] text-white/40">
+                      Future Partners
+                    </h3>
+                    <p className="mt-2 text-sm leading-relaxed text-white/45">
+                      New clubs will come on at the right time, with the same care and standards.
+                    </p>
+                  </div>
                 </div>
               </div>
             </div>
+          </ScrollReveal>
+        </SectionWrapper>
+
+        <SectionWrapper sectionClassName="bg-neutral-50" aria-labelledby="values-heading">
+          <ScrollReveal>
+            <h2 id="values-heading" className="text-3xl font-semibold tracking-tight text-ink sm:text-4xl">
+              Values
+            </h2>
+            <ul className="mt-12 grid gap-6 sm:grid-cols-2" role="list">
+              {VALUES.map((v) => (
+                <li
+                  key={v.title}
+                  className="relative overflow-hidden rounded-md border border-neutral-200 bg-white p-6 shadow-card transition hover:border-accent/25 hover:shadow-soft sm:p-8"
+                >
+                  <span className="absolute right-0 top-0 h-2 w-20 -skew-x-12 bg-accent" aria-hidden />
+                  <h3 className="text-lg font-semibold text-ink">{v.title}</h3>
+                  <p className="mt-2 text-sm leading-relaxed text-neutral-600 sm:text-base">{v.text}</p>
+                </li>
+              ))}
+            </ul>
+          </ScrollReveal>
+        </SectionWrapper>
+
+        <SectionWrapper sectionClassName="bg-white" aria-labelledby="org-heading">
+          <ScrollReveal>
+            <div className="mx-auto max-w-3xl">
+              <h2 id="org-heading" className="text-3xl font-semibold tracking-tight text-ink sm:text-4xl">
+                Who we are
+              </h2>
+              <div className="mt-6 space-y-4 text-base leading-relaxed text-neutral-700 sm:text-lg">
+                <p>
+                  Hope Football is a Northern Ireland charity that grew out of{" "}
+                  <strong>Ambassadors Football (Ireland)</strong> after two decades of work in West
+                  Africa.
+                </p>
+                <p>
+                  The charity was formed in 2026 to give focused support to the football work as it
+                  grows, beginning with Yakaar FC in Senegal.
+                </p>
+              </div>
+              <div className="mt-8 rounded-md border border-neutral-200 bg-neutral-50 p-6 text-sm text-neutral-600">
+                <p className="font-semibold text-ink">Hope Football</p>
+                <p>Northern Ireland charity</p>
+                <p>Born in 2026 from Ambassadors Football (Ireland)</p>
+                <a href="mailto:hello@hopefootball.org" className="mt-1 block text-accent hover:text-accent-muted">
+                  hello@hopefootball.org
+                </a>
+                <a href="tel:+447739017143" className="mt-1 block text-neutral-600 hover:text-ink">
+                  07739 017 143
+                </a>
+              </div>
+            </div>
+          </ScrollReveal>
+        </SectionWrapper>
+
+        <section className="border-t border-black/5 bg-ink py-20 text-center text-white sm:py-24">
+          <div className="mx-auto max-w-6xl px-4 sm:px-6">
+            <p className="text-2xl font-semibold tracking-tight sm:text-3xl">Ready to stand with us?</p>
+            <Link
+              href="/donate"
+              className="mt-8 inline-flex min-h-12 items-center justify-center rounded-md bg-accent px-8 py-3 text-sm font-semibold text-white transition hover:bg-accent-muted"
+            >
+              Give Hope
+            </Link>
           </div>
-        </ScrollReveal>
-      </SectionWrapper>
-
-      <SectionWrapper sectionClassName="bg-neutral-50" aria-labelledby="values-heading">
-        <ScrollReveal>
-          <h2 id="values-heading" className="text-3xl font-semibold tracking-tight text-ink sm:text-4xl">
-            Values
-          </h2>
-          <ul className="mt-12 grid gap-6 sm:grid-cols-2" role="list">
-            {VALUES.map((v) => (
-              <li
-                key={v.title}
-                className="rounded-2xl border border-neutral-200 bg-white p-6 shadow-card transition hover:border-accent/25 hover:shadow-soft sm:p-8"
-              >
-                <h3 className="text-lg font-semibold text-ink">{v.title}</h3>
-                <p className="mt-2 text-sm leading-relaxed text-neutral-600 sm:text-base">{v.text}</p>
-              </li>
-            ))}
-          </ul>
-        </ScrollReveal>
-      </SectionWrapper>
-
-      <section className="border-t border-black/5 bg-ink py-20 text-center text-white sm:py-24">
-        <div className="mx-auto max-w-6xl px-4 sm:px-6">
-          <p className="text-2xl font-semibold tracking-tight sm:text-3xl">Ready to stand with us?</p>
-          <Link
-            href="/donate"
-            className="mt-8 inline-flex min-h-12 items-center justify-center rounded-2xl bg-accent px-8 py-3 text-sm font-semibold text-white transition hover:bg-accent-muted"
-          >
-            Give Hope
-          </Link>
-        </div>
-      </section>
+        </section>
       </main>
     </>
   );

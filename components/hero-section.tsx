@@ -12,9 +12,9 @@ function HeroCtaLink({
 }) {
   const isExternal = href.startsWith("mailto:") || href.startsWith("tel:");
   const primaryCls =
-    "inline-flex min-h-12 items-center justify-center rounded-2xl bg-white px-8 py-3.5 text-center text-sm font-semibold text-ink transition hover:bg-white/90 active:scale-[0.99] sm:min-h-14 sm:px-10 sm:text-base";
+    "inline-flex min-h-12 items-center justify-center rounded-md bg-white px-8 py-3.5 text-center text-sm font-semibold text-ink shadow-lg shadow-black/20 transition hover:bg-white/90 active:scale-[0.99] sm:min-h-14 sm:px-10 sm:text-base";
   const secondaryCls =
-    "inline-flex min-h-12 items-center justify-center rounded-2xl border border-white/40 bg-white/5 px-8 py-3.5 text-center text-sm font-semibold text-white backdrop-blur-sm transition hover:border-white/70 hover:bg-white/10 sm:min-h-14 sm:px-10 sm:text-base";
+    "inline-flex min-h-12 items-center justify-center rounded-md border border-white/40 bg-white/5 px-8 py-3.5 text-center text-sm font-semibold text-white backdrop-blur-sm transition hover:border-white/70 hover:bg-white/10 sm:min-h-14 sm:px-10 sm:text-base";
   const className = variant === "primary" ? primaryCls : secondaryCls;
   if (isExternal) {
     return (
@@ -32,11 +32,11 @@ function HeroCtaLink({
 
 type HeroSectionProps = {
   title: string;
-  /** Optional second line in accent colour (e.g. Sanity “Hero title accent”) */
+  /** Optional second line in accent colour */
   titleAccent?: string | null;
   tagline?: string;
   subtitle?: string;
-  /** Remote or local URL; omit or `null` for gradient-only hero (e.g. no Sanity image yet) */
+  /** Remote or local URL; omit or `null` for gradient-only hero */
   imageSrc?: string | null;
   /** Alt text when `imageSrc` is set */
   imageAlt?: string;
@@ -84,6 +84,9 @@ export function HeroSection({
         />
       )}
       <div className="absolute inset-0 bg-gradient-to-t from-black via-black/55 to-black/30" aria-hidden />
+      <div className="absolute right-0 top-24 hidden h-24 w-[28rem] -skew-x-12 bg-accent/80 opacity-90 lg:block" aria-hidden />
+      <div className="absolute right-20 top-56 hidden h-20 w-[22rem] -skew-x-12 bg-accent/70 opacity-80 lg:block" aria-hidden />
+      <div className="absolute bottom-0 left-0 h-1.5 w-full bg-accent" aria-hidden />
       <div className="relative z-10 mx-auto w-full max-w-6xl px-4 sm:px-6">
         <p className="mb-4 text-xs font-semibold uppercase tracking-[0.25em] text-white/80 md:text-sm">
           {tagline}

@@ -1,7 +1,7 @@
 const STATS = [
   {
-    value: "500+",
-    label: "Young people reached",
+    value: "1",
+    label: "First partner club",
     icon: (
       <svg className="h-8 w-8" viewBox="0 0 32 32" fill="none" aria-hidden>
         <path
@@ -15,8 +15,8 @@ const STATS = [
     ),
   },
   {
-    value: "1st",
-    label: "Partner club in Senegal",
+    value: "SN",
+    label: "Starting in Senegal",
     icon: (
       <svg className="h-8 w-8" viewBox="0 0 32 32" fill="none" aria-hidden>
         <circle cx="10" cy="22" r="3" stroke="currentColor" strokeWidth="1.5" />
@@ -27,8 +27,8 @@ const STATS = [
     ),
   },
   {
-    value: "12+",
-    label: "Years of programmes",
+    value: "52",
+    label: "Weeks to keep showing up",
     icon: (
       <svg className="h-8 w-8" viewBox="0 0 32 32" fill="none" aria-hidden>
         <path
@@ -43,7 +43,7 @@ const STATS = [
   },
   {
     value: "100%",
-    label: "Coach-led, child-first",
+    label: "Child-first commitment",
     icon: (
       <svg className="h-8 w-8" viewBox="0 0 32 32" fill="none" aria-hidden>
         <path
@@ -64,8 +64,9 @@ export function ImpactStats() {
       {STATS.map((s) => (
         <li
           key={s.label}
-          className="rounded-2xl border border-neutral-200 bg-white p-6 shadow-card transition hover:border-accent/30 hover:shadow-soft"
+          className="relative overflow-hidden rounded-md border border-neutral-200 bg-white p-6 shadow-card transition hover:border-accent/30 hover:shadow-soft"
         >
+          <span className="absolute right-0 top-0 h-2 w-20 -skew-x-12 bg-accent" aria-hidden />
           <div className="text-accent">{s.icon}</div>
           <p className="mt-4 text-3xl font-semibold tracking-tight text-ink sm:text-4xl">{s.value}</p>
           <p className="mt-1 text-sm font-medium text-neutral-600">{s.label}</p>

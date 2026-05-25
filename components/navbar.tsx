@@ -2,75 +2,24 @@
 
 import Image from "next/image";
 import Link from "next/link";
-import { usePathname } from "next/navigation";
-import { useCallback, useLayoutEffect, useEffect, useState } from "react";
+import { useState } from "react";
 
 const NAV = [
   { href: "/about", label: "About" },
   { href: "/#contact", label: "Contact" },
 ] as const;
 
-/** Become solid after scrolling past hero header */
-const ELEVATE_AT = 48;
-/** Stay solid until well back at top — stops flicker when rubber-banding or hovering around the threshold */
-const DE_ELEVATE_AT = 12;
-
-function computeElevated(prev: boolean, scrollY: number): boolean {
-  if (scrollY >= ELEVATE_AT) return true;
-  if (scrollY <= DE_ELEVATE_AT) return false;
-  return prev;
-}
-
-function initialElevated(scrollY: number): boolean {
-  if (scrollY >= ELEVATE_AT) return true;
-  if (scrollY <= DE_ELEVATE_AT) return false;
-  return scrollY > (ELEVATE_AT + DE_ELEVATE_AT) / 2;
-}
-
-/**
- * Sticky navbar — on home: glass bar over hero at top, solid bar when scrolled.
- * Hysteresis avoids solid/transparent flicker when scrolling back to the top.
- */
 export function Navbar() {
-  const pathname = usePathname();
-  const isHome = pathname === "/" || pathname === "/about";
-  const [elevated, setElevated] = useState(false);
   const [open, setOpen] = useState(false);
 
-  const syncScroll = useCallback(() => {
-    if (!isHome) return;
-    setElevated((prev) => computeElevated(prev, window.scrollY));
-  }, [isHome]);
-
-  useLayoutEffect(() => {
-    if (!isHome) return;
-    queueMicrotask(() => setElevated(initialElevated(window.scrollY)));
-    const onScroll = () => syncScroll();
-    window.addEventListener("scroll", onScroll, { passive: true });
-    return () => window.removeEventListener("scroll", onScroll);
-  }, [isHome, syncScroll]);
-
-  useEffect(() => {
-    const onPageShow = (e: PageTransitionEvent) => {
-      if (e.persisted && isHome) setElevated(initialElevated(window.scrollY));
-    };
-    window.addEventListener("pageshow", onPageShow);
-    return () => window.removeEventListener("pageshow", onPageShow);
-  }, [isHome]);
-
-  const solidBar = !isHome || elevated;
   const closeMenu = () => setOpen(false);
 
-  const linkDesktop = solidBar
-    ? "text-sm font-medium text-neutral-800 transition hover:text-accent"
-    : "text-sm font-medium text-white/95 transition hover:text-white";
+  const linkDesktop = "text-sm font-medium text-white/85 transition hover:text-white";
 
   const linkMobile =
-    "flex min-h-12 items-center rounded-xl px-3 text-base font-semibold text-ink hover:bg-neutral-100";
+    "flex min-h-12 items-center rounded-md px-3 text-base font-semibold text-white/90 hover:bg-white/10 hover:text-white";
 
-  const navSurface = solidBar
-    ? "border-b border-black/5 bg-white/95 text-ink shadow-sm backdrop-blur-md"
-    : "border-b border-white/10 bg-black/35 text-white shadow-sm backdrop-blur-md";
+  const navSurface = "border-b border-white/10 bg-ink text-white shadow-sm";
 
   return (
     <header className="fixed top-0 z-50 w-full">
@@ -86,10 +35,10 @@ export function Navbar() {
             <Image
               src="/hope-football.png"
               alt="Hope Football"
-              width={1415}
-              height={1112}
+              width={1426}
+              height={1103}
               priority
-              className="h-12 w-auto rounded-sm md:h-14"
+              className="h-12 w-auto md:h-14"
               sizes="(min-width: 768px) 178px, 153px"
             />
           </Link>
@@ -117,9 +66,7 @@ export function Navbar() {
             </Link>
             <button
               type="button"
-              className={`inline-flex min-h-11 min-w-11 items-center justify-center rounded-xl border ${
-                solidBar ? "border-neutral-200 bg-white text-ink" : "border-white/40 bg-white/15 text-white"
-              }`}
+              className="inline-flex min-h-11 min-w-11 items-center justify-center rounded-md border border-white/25 bg-white/10 text-white"
               aria-expanded={open}
               aria-controls="mobile-menu"
               onClick={() => setOpen((o) => !o)}
@@ -141,7 +88,7 @@ export function Navbar() {
         {open ? (
           <div
             id="mobile-menu"
-            className="border-t border-black/5 bg-white px-4 py-4 shadow-lg md:hidden"
+            className="border-t border-white/10 bg-ink px-4 py-4 shadow-lg md:hidden"
             role="dialog"
             aria-modal="true"
             aria-label="Mobile navigation"
