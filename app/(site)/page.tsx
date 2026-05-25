@@ -18,7 +18,7 @@ const DEFAULT_TITLE = "Hope through";
 const DEFAULT_ACCENT = "football.";
 const DEFAULT_SUBTITLE =
   "Backing locally led football projects with coaching, kit, mentoring, and trusted support for young people.";
-const DEFAULT_HERO_IMAGE = "/images/yakaar-hero.jpeg";
+const DEFAULT_HERO_IMAGE = "/images/yakaar-training.jpeg";
 
 const MODEL_ITEMS = [
   {
@@ -52,7 +52,7 @@ export default async function HomePage() {
         titleAccent={DEFAULT_ACCENT}
         subtitle={DEFAULT_SUBTITLE}
         imageSrc={DEFAULT_HERO_IMAGE}
-        imageAlt="Yakaar FC players and coaches together in Senegal"
+        imageAlt="Yakaar FC players seated under a goal in Senegal"
         tagline="Football. Hope. Community."
         primaryCta={{ href: "/donate", label: "Give Hope" }}
         secondaryCta={{ href: "/about", label: "Our story" }}
@@ -92,8 +92,8 @@ export default async function HomePage() {
               </div>
               <div className="relative min-h-[22rem] overflow-hidden rounded-md shadow-soft ring-1 ring-black/5">
                 <Image
-                  src="/images/yakaar-training.jpeg"
-                  alt="Yakaar FC players seated together beside the goal"
+                  src="/images/yakaar-hero.jpeg"
+                  alt="Yakaar FC players and coaches together in Senegal"
                   fill
                   className="object-cover"
                   sizes="(max-width: 1024px) 100vw, 45vw"
