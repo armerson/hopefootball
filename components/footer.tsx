@@ -21,10 +21,13 @@ export function Footer() {
               beginning with Yakaar FC in Senegal.
             </p>
             <address className="mt-6 not-italic text-sm leading-relaxed text-white/60">
-              <strong className="block text-white/80 font-semibold">Hope Football</strong>
-              Born in 2026 from 20 years of<br />
-              Ambassadors Football (Ireland) work<br />
-              in West Africa
+              <strong className="block font-semibold text-white/80">
+                Ambassadors Football Ireland for Hope Football
+              </strong>
+              Ambassadors Arena<br />
+              9 Brownlow Road<br />
+              Craigavon, Northern Ireland<br />
+              Charity No: 102267
             </address>
           </div>
 
@@ -57,17 +60,17 @@ export function Footer() {
               href="tel:+447739017143"
               className="mt-2 block text-sm font-medium text-white/70 hover:text-white"
             >
-              07739 017 143
+              07739 017143
             </a>
             <p className="mt-6 text-xs leading-relaxed text-white/45">
-              Based in Northern Ireland. Supporting football projects with local leadership and
-              long-term care.
+              Hope Football is supported through Ambassadors Football Ireland, a Northern Ireland
+              charity with 20 years of football ministry relationships in West Africa.
             </p>
           </div>
         </div>
 
         <p className="mt-14 border-t border-white/10 pt-8 text-xs text-white/45">
-          © {new Date().getFullYear()} Hope Football. All rights reserved.
+          © {new Date().getFullYear()} Ambassadors Football Ireland for Hope Football. All rights reserved.
         </p>
       </div>
     </footer>

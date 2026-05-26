@@ -23,6 +23,27 @@ const VALUES = [
   },
 ];
 
+const MISSION_ITEMS = [
+  "Support locally led football projects with coaching, kit, equipment, and governance.",
+  "Help partner clubs create safe weekly spaces where young people are known and encouraged.",
+  "Build long-term relationships that allow football ministry to grow with care and accountability.",
+] as const;
+
+const IMPACT_ITEMS = [
+  {
+    title: "Belonging",
+    text: "Regular sessions give young people a place to be expected, welcomed, and part of a team.",
+  },
+  {
+    title: "Leadership",
+    text: "Local coaches and volunteers are equipped to lead with consistency, care, and clear standards.",
+  },
+  {
+    title: "Opportunity",
+    text: "Football opens doors for mentoring, education, travel, service, and future pathways.",
+  },
+] as const;
+
 export const metadata = {
   title: "About",
   description:
@@ -40,10 +61,10 @@ export default function AboutPage() {
         imageSrc="/images/yakaar-hero.jpeg"
         imageAlt="Yakaar FC players and coaches together in Senegal"
         primaryCta={{ href: "/donate", label: "Give Hope" }}
-        secondaryCta={{ href: "/#contact", label: "Contact us" }}
+        secondaryCta={{ href: "/contact", label: "Contact us" }}
       />
       <main className="bg-white">
-        <SectionWrapper aria-labelledby="vision-heading">
+        <SectionWrapper aria-labelledby="ministry-heading">
           <ScrollReveal>
             <div className="grid gap-10 lg:grid-cols-[0.85fr_1fr] lg:items-center">
               <div className="relative min-h-[18rem] overflow-hidden rounded-md shadow-card ring-1 ring-black/5">
@@ -56,22 +77,29 @@ export default function AboutPage() {
                 />
               </div>
               <div>
-                <h2 id="vision-heading" className="text-3xl font-semibold tracking-tight text-ink sm:text-4xl">
-                  Vision
+                <p className="text-xs font-semibold uppercase tracking-[0.2em] text-accent">
+                  Football ministry vision
+                </p>
+                <h2 id="ministry-heading" className="mt-4 text-3xl font-semibold tracking-tight text-ink sm:text-4xl">
+                  Hope that is practical, weekly, and lived out through football.
                 </h2>
                 <p className="mt-6 max-w-3xl text-lg leading-relaxed text-neutral-700 sm:text-xl">
-                  A world where every young person who wants to play has a club that believes in them,
-                  where hope is practical, weekly, and worn on a jersey.
+                  We believe football can create trusted relationships where young people are seen,
+                  encouraged, challenged, and supported. The vision is ministry through presence:
+                  coaches, clubs, and communities showing up faithfully, week after week.
                 </p>
               </div>
             </div>
           </ScrollReveal>
         </SectionWrapper>
 
-        <SectionWrapper sectionClassName="bg-neutral-50" aria-labelledby="story-heading">
+        <SectionWrapper sectionClassName="bg-neutral-50" aria-labelledby="history-heading">
           <ScrollReveal>
-            <h2 id="story-heading" className="text-3xl font-semibold tracking-tight text-ink sm:text-4xl">
-              How it started
+            <p className="text-xs font-semibold uppercase tracking-[0.2em] text-accent">
+              History
+            </p>
+            <h2 id="history-heading" className="mt-4 text-3xl font-semibold tracking-tight text-ink sm:text-4xl">
+              Born from 20 years of football ministry in West Africa.
             </h2>
             <div className="mt-8 grid gap-10 lg:grid-cols-[1fr_0.85fr] lg:items-center">
               <div className="max-w-3xl space-y-6 text-base leading-relaxed text-neutral-700 sm:text-lg">
@@ -99,18 +127,49 @@ export default function AboutPage() {
           </ScrollReveal>
         </SectionWrapper>
 
-        <SectionWrapper sectionClassName="bg-ink text-white" aria-labelledby="structure-heading">
+        <SectionWrapper sectionClassName="bg-white" aria-labelledby="mission-heading">
+          <ScrollReveal>
+            <div className="grid gap-10 lg:grid-cols-[0.8fr_1fr] lg:items-start">
+              <div>
+                <p className="text-xs font-semibold uppercase tracking-[0.2em] text-accent">
+                  Mission
+                </p>
+                <h2 id="mission-heading" className="mt-4 text-3xl font-semibold tracking-tight text-ink sm:text-4xl">
+                  To strengthen locally led football projects that help young people flourish.
+                </h2>
+                <p className="mt-5 text-base leading-relaxed text-neutral-600 sm:text-lg">
+                  Hope Football exists to focus support, prayer, governance, and resources around
+                  growing football ministry in West Africa, starting with Yakaar FC in Senegal.
+                </p>
+              </div>
+              <ul className="grid gap-4" role="list">
+                {MISSION_ITEMS.map((item) => (
+                  <li
+                    key={item}
+                    className="relative overflow-hidden rounded-md border border-neutral-200 bg-neutral-50 p-5 text-sm font-medium leading-relaxed text-neutral-700 shadow-card sm:text-base"
+                  >
+                    <span className="absolute left-0 top-0 h-full w-1 bg-accent" aria-hidden />
+                    {item}
+                  </li>
+                ))}
+              </ul>
+            </div>
+          </ScrollReveal>
+        </SectionWrapper>
+
+        <SectionWrapper sectionClassName="bg-ink text-white" aria-labelledby="team-heading">
           <ScrollReveal>
             <div className="mx-auto max-w-3xl text-center">
               <p className="text-xs font-semibold uppercase tracking-[0.2em] text-accent-muted">
-                Hope Football
+                Staff and team
               </p>
-              <h2 id="structure-heading" className="mt-4 text-3xl font-semibold tracking-tight sm:text-4xl">
-                One foundation. Local clubs. Shared standards.
+              <h2 id="team-heading" className="mt-4 text-3xl font-semibold tracking-tight sm:text-4xl">
+                A Northern Ireland charity serving locally led clubs.
               </h2>
               <p className="mt-5 text-base leading-relaxed text-white/70 sm:text-lg">
-                Hope Football gives the structure, governance, and practical support. Partner clubs
-                stay locally led, with Yakaar FC in Senegal first.
+                Hope Football provides board oversight, staff support, safeguarding, programme
+                coordination, and donor accountability. Local clubs are led by people embedded in
+                their own communities.
               </p>
             </div>
             <div
@@ -133,11 +192,11 @@ export default function AboutPage() {
                   {[
                     {
                       title: "Hope Football Board",
-                      text: "Strategic leadership, governance, and oversight for the foundation.",
+                      text: "Strategic leadership, charity governance, accountability, and oversight.",
                     },
                     {
                       title: "Hope Football Staff",
-                      text: "Programme delivery, club support, safeguarding, and day-to-day operations.",
+                      text: "Programme delivery, club support, safeguarding, fundraising, and operations.",
                     },
                   ].map((item) => (
                     <div
@@ -154,7 +213,7 @@ export default function AboutPage() {
 
                 <div className="h-10 w-px bg-white/40" aria-hidden />
                 <div className="rounded-md bg-accent px-6 py-3 text-center text-xs font-semibold uppercase tracking-[0.18em] text-white shadow-lg shadow-accent/25">
-                  Clubs are run by local committees
+                  Partnerships are locally led
                 </div>
 
                 <div className="grid w-full gap-6 pt-10 sm:grid-cols-2">
@@ -169,6 +228,9 @@ export default function AboutPage() {
                     <h3 className="mt-5 text-lg font-semibold uppercase tracking-[0.14em] text-accent-muted">
                       Yakaar FC
                     </h3>
+                    <p className="mt-1 text-xs font-semibold uppercase tracking-[0.18em] text-white/40">
+                      First partnership
+                    </p>
                     <p className="mt-2 text-sm leading-relaxed text-white/70">
                       Community driven football in Senegal, supported first and built carefully.
                     </p>
@@ -187,6 +249,71 @@ export default function AboutPage() {
                 </div>
               </div>
             </div>
+          </ScrollReveal>
+        </SectionWrapper>
+
+        <SectionWrapper sectionClassName="bg-white" aria-labelledby="partnerships-heading">
+          <ScrollReveal>
+            <div className="grid gap-10 lg:grid-cols-[0.9fr_1fr] lg:items-center">
+              <div className="relative min-h-[20rem] overflow-hidden rounded-md bg-ink shadow-card ring-1 ring-black/5">
+                <Image
+                  src="/images/yakaar-action.jpeg"
+                  alt="Young players competing for the ball on a sandy pitch"
+                  fill
+                  className="object-cover"
+                  sizes="(max-width: 1024px) 100vw, 42vw"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/75 via-black/15 to-transparent" aria-hidden />
+              </div>
+              <div>
+                <p className="text-xs font-semibold uppercase tracking-[0.2em] text-accent">
+                  Partnerships
+                </p>
+                <h2 id="partnerships-heading" className="mt-4 text-3xl font-semibold tracking-tight text-ink sm:text-4xl">
+                  We grow through trusted local relationships.
+                </h2>
+                <div className="mt-6 space-y-5 text-base leading-relaxed text-neutral-700 sm:text-lg">
+                  <p>
+                    The first Hope Football partnership is with Yakaar FC in Senegal. Yakaar means
+                    hope, and the club represents the kind of community-rooted work the charity was
+                    formed to strengthen.
+                  </p>
+                  <p>
+                    Future partnerships will be added carefully, at the right time, with local
+                    leadership, shared safeguarding standards, and clear accountability.
+                  </p>
+                </div>
+              </div>
+            </div>
+          </ScrollReveal>
+        </SectionWrapper>
+
+        <SectionWrapper sectionClassName="bg-neutral-50" aria-labelledby="impact-heading">
+          <ScrollReveal>
+            <div className="mx-auto max-w-3xl text-center">
+              <p className="text-xs font-semibold uppercase tracking-[0.2em] text-accent">
+                Community impact
+              </p>
+              <h2 id="impact-heading" className="mt-4 text-3xl font-semibold tracking-tight text-ink sm:text-4xl">
+                Football becomes a doorway into deeper community support.
+              </h2>
+              <p className="mt-5 text-base leading-relaxed text-neutral-600 sm:text-lg">
+                The impact is not only measured in matches played. It is seen in relationships,
+                leadership, confidence, and the steady presence of adults who keep showing up.
+              </p>
+            </div>
+            <ul className="mt-12 grid gap-6 md:grid-cols-3" role="list">
+              {IMPACT_ITEMS.map((item) => (
+                <li
+                  key={item.title}
+                  className="relative overflow-hidden rounded-md border border-neutral-200 bg-white p-6 shadow-card sm:p-8"
+                >
+                  <span className="absolute right-0 top-0 h-2 w-16 -skew-x-12 bg-accent" aria-hidden />
+                  <h3 className="text-lg font-semibold text-ink">{item.title}</h3>
+                  <p className="mt-3 text-sm leading-relaxed text-neutral-600 sm:text-base">{item.text}</p>
+                </li>
+              ))}
+            </ul>
           </ScrollReveal>
         </SectionWrapper>
 
@@ -229,7 +356,8 @@ export default function AboutPage() {
               </div>
               <div className="mt-8 rounded-md border border-neutral-200 bg-neutral-50 p-6 text-sm text-neutral-600">
                 <p className="font-semibold text-ink">Hope Football</p>
-                <p>Northern Ireland charity</p>
+                <p>Ambassadors Arena, 9 Brownlow Road, Craigavon, Northern Ireland</p>
+                <p>Charity No: 102267</p>
                 <p>Born in 2026 from Ambassadors Football (Ireland)</p>
                 <a href="mailto:hello@hopefootball.org" className="mt-1 block text-accent hover:text-accent-muted">
                   hello@hopefootball.org

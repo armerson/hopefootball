@@ -3,7 +3,7 @@ import { SectionWrapper } from "@/components/section-wrapper";
 export const metadata = {
   title: "Privacy Policy",
   description:
-    "Privacy policy for hopefootball.org — operated by Hope Football, a Northern Ireland charity.",
+    "Privacy policy for hopefootball.org — operated by Ambassadors Football Ireland for Hope Football.",
 };
 
 export default function PrivacyPage() {
@@ -26,16 +26,16 @@ export default function PrivacyPage() {
                 1. Who we are
               </h2>
               <p className="mt-3">
-                This website, hopefootball.org, is owned and operated by{" "}
-                <strong>Hope Football</strong>, a Northern Ireland charity born in 2026 out of
-                Ambassadors Football (Ireland) after 20 years of work in West Africa.
+                This website, hopefootball.org, is operated by{" "}
+                <strong>Ambassadors Football Ireland for Hope Football</strong>, Charity No: 102267,
+                based at Ambassadors Arena, 9 Brownlow Road, Craigavon, Northern Ireland.
               </p>
               <p className="mt-3">
                 You can contact us at{" "}
                 <a href="mailto:hello@hopefootball.org" className="text-accent hover:text-accent-muted underline">
                   hello@hopefootball.org
                 </a>{" "}
-                or by phone on 07739 017 143.
+                or by phone on 07739 017143.
               </p>
             </section>
 
