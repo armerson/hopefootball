@@ -8,14 +8,16 @@ export function Footer() {
         <div className="grid gap-12 md:grid-cols-2 lg:grid-cols-4 lg:gap-8">
           {/* Brand + org details */}
           <div className="lg:col-span-2">
-            <Image
-              src="/hope-football.png"
-              alt="Hope Football"
-              width={1426}
-              height={1103}
-              className="h-auto w-44 rounded-sm"
-              sizes="176px"
-            />
+            <div className="inline-flex rounded-md bg-white p-3 shadow-sm">
+              <Image
+                src="/hope-football.png"
+                alt="Hope Football"
+                width={1835}
+                height={857}
+                className="h-auto w-48"
+                sizes="192px"
+              />
+            </div>
             <p className="mt-3 max-w-md text-sm leading-relaxed text-white/70">
               A Northern Ireland charity backing locally led football projects across West Africa,
               beginning with Yakaar FC in Senegal.

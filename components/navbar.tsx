@@ -14,12 +14,12 @@ export function Navbar() {
 
   const closeMenu = () => setOpen(false);
 
-  const linkDesktop = "text-sm font-medium text-white/85 transition hover:text-white";
+  const linkDesktop = "text-sm font-medium text-ink/80 transition hover:text-ink";
 
   const linkMobile =
-    "flex min-h-12 items-center rounded-md px-3 text-base font-semibold text-white/90 hover:bg-white/10 hover:text-white";
+    "flex min-h-12 items-center rounded-md px-3 text-base font-semibold text-ink/90 hover:bg-neutral-100 hover:text-ink";
 
-  const navSurface = "border-b border-white/10 bg-ink text-white shadow-sm";
+  const navSurface = "border-b border-neutral-200 bg-white text-ink shadow-sm";
 
   return (
     <header className="fixed top-0 z-50 w-full">
@@ -35,11 +35,11 @@ export function Navbar() {
             <Image
               src="/hope-football.png"
               alt="Hope Football"
-              width={1426}
-              height={1103}
+              width={1835}
+              height={857}
               priority
-              className="h-12 w-auto md:h-14"
-              sizes="(min-width: 768px) 178px, 153px"
+              className="h-11 w-auto md:h-14"
+              sizes="(min-width: 768px) 180px, 142px"
             />
           </Link>
 
@@ -51,7 +51,7 @@ export function Navbar() {
             ))}
             <Link
               href="/donate"
-              className="inline-flex min-h-11 items-center rounded-2xl bg-accent px-5 py-2.5 text-sm font-semibold text-white shadow-lg shadow-accent/20 transition hover:bg-accent-muted"
+              className="inline-flex min-h-11 items-center rounded-md bg-accent px-5 py-2.5 text-sm font-semibold text-white shadow-lg shadow-accent/20 transition hover:bg-accent-muted"
             >
               Donate
             </Link>
@@ -60,13 +60,13 @@ export function Navbar() {
           <div className="flex shrink-0 items-center gap-2 md:hidden">
             <Link
               href="/donate"
-              className="inline-flex min-h-11 items-center rounded-2xl bg-accent px-4 py-2.5 text-sm font-semibold text-white"
+              className="inline-flex min-h-11 items-center rounded-md bg-accent px-4 py-2.5 text-sm font-semibold text-white"
             >
               Donate
             </Link>
             <button
               type="button"
-              className="inline-flex min-h-11 min-w-11 items-center justify-center rounded-md border border-white/25 bg-white/10 text-white"
+              className="inline-flex min-h-11 min-w-11 items-center justify-center rounded-md border border-neutral-200 bg-white text-ink"
               aria-expanded={open}
               aria-controls="mobile-menu"
               onClick={() => setOpen((o) => !o)}
@@ -88,7 +88,7 @@ export function Navbar() {
         {open ? (
           <div
             id="mobile-menu"
-            className="border-t border-white/10 bg-ink px-4 py-4 shadow-lg md:hidden"
+            className="border-t border-neutral-200 bg-white px-4 py-4 shadow-lg md:hidden"
             role="dialog"
             aria-modal="true"
             aria-label="Mobile navigation"

@@ -173,7 +173,7 @@ export default function AboutPage() {
               </p>
             </div>
             <div
-              className="relative mt-12 overflow-hidden rounded-md border border-white/10 bg-black p-6 shadow-soft sm:p-10"
+              className="relative mt-12 overflow-hidden rounded-md border border-white/10 bg-ink p-6 shadow-soft sm:p-10"
               role="img"
               aria-label="Diagram: Hope Football Foundation supports Yakaar FC first, with future partners to follow"
             >
@@ -183,9 +183,9 @@ export default function AboutPage() {
                 <Image
                   src="/hope-football.png"
                   alt=""
-                  width={240}
-                  height={180}
-                  className="h-auto w-40 sm:w-52"
+                  width={1835}
+                  height={857}
+                  className="h-auto w-48 rounded-md bg-white p-2 sm:w-64"
                 />
 
                 <div className="mt-8 grid w-full max-w-xl gap-4">
@@ -201,7 +201,7 @@ export default function AboutPage() {
                   ].map((item) => (
                     <div
                       key={item.title}
-                      className="rounded-md border border-accent/70 bg-white/[0.03] px-5 py-4 text-left shadow-[0_0_24px_rgba(37,99,235,0.14)]"
+                      className="rounded-md border border-accent/70 bg-white/[0.03] px-5 py-4 text-left shadow-[0_0_24px_rgba(215,154,20,0.18)]"
                     >
                       <p className="text-sm font-semibold uppercase tracking-[0.16em] text-accent-muted">
                         {item.title}
