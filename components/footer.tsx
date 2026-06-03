@@ -19,8 +19,8 @@ export function Footer() {
               />
             </div>
             <p className="mt-3 max-w-md text-sm leading-relaxed text-white/70">
-              A Northern Ireland charity backing locally led football projects across West Africa,
-              beginning with Yakaar FC in Senegal.
+              Building healthy football clubs that develop young people, strengthen communities,
+              and inspire hope.
             </p>
             <address className="mt-6 not-italic text-sm leading-relaxed text-white/60">
               <strong className="block font-semibold text-white/80">
@@ -40,8 +40,26 @@ export function Footer() {
               <Link href="/about" className="text-sm font-medium text-white/85 hover:text-accent">
                 About
               </Link>
+              <Link href="/yakaar-fc" className="text-sm font-medium text-white/85 hover:text-accent">
+                Yakaar FC
+              </Link>
+              <Link href="/elikia-fc" className="text-sm font-medium text-white/85 hover:text-accent">
+                Elikia FC
+              </Link>
+              <Link href="/hope-football-centre" className="text-sm font-medium text-white/85 hover:text-accent">
+                Hope Centre
+              </Link>
+              <Link href="/get-involved" className="text-sm font-medium text-white/85 hover:text-accent">
+                Get Involved
+              </Link>
+              <Link href="/cycle-for-hope" className="text-sm font-medium text-white/85 hover:text-accent">
+                Cycle for Hope
+              </Link>
               <Link href="/donate" className="text-sm font-medium text-white/85 hover:text-accent">
                 Donate
+              </Link>
+              <Link href="/contact" className="text-sm font-medium text-white/85 hover:text-accent">
+                Contact
               </Link>
               <Link href="/privacy" className="text-sm font-medium text-white/85 hover:text-accent">
                 Privacy Policy

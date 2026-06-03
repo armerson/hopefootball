@@ -6,6 +6,11 @@ import { useState } from "react";
 
 const NAV = [
   { href: "/about", label: "About" },
+  { href: "/yakaar-fc", label: "Yakaar FC" },
+  { href: "/elikia-fc", label: "Elikia FC" },
+  { href: "/hope-football-centre", label: "Hope Centre" },
+  { href: "/get-involved", label: "Get Involved" },
+  { href: "/cycle-for-hope", label: "Cycle for Hope" },
   { href: "/contact", label: "Contact" },
 ] as const;
 
@@ -43,7 +48,7 @@ export function Navbar() {
             />
           </Link>
 
-          <div className="hidden shrink-0 items-center gap-8 md:flex">
+          <div className="hidden shrink-0 items-center gap-5 md:flex">
             {NAV.map((item) => (
               <Link key={item.href} href={item.href} className={linkDesktop}>
                 {item.label}
